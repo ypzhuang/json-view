@@ -43,6 +43,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.baomidou.mybatisplus.core.enums.IEnum;
+
 import static com.monitorjbl.json.MatcherBehavior.CLASS_FIRST;
 import static com.monitorjbl.json.MatcherBehavior.PATH_FIRST;
 import static java.util.Arrays.asList;
@@ -212,7 +214,11 @@ public class JsonViewSerializer extends JsonSerializer<JsonView> {
 
     boolean writeEnum(Object obj) throws IOException {
       if(obj.getClass().isEnum()) {
-        jgen.writeString(((Enum) obj).name());
+        if(obj instanceof IEnum) {
+          jgen.writeString(((IEnum) obj).getValue() + "");
+        } else {
+          jgen.writeString(((Enum) obj).name());
+        }        
       } else {
         return false;
       }

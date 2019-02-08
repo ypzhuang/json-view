@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.monitorjbl</groupId>
+  <groupId>ypzhuang</groupId>
   <artifactId>json-view-aggregator</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
@@ -26,4 +26,15 @@
     <module>spring-json-view</module>
     <module>json-view</module>
   </modules>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <url>https://repo.rdc.aliyun.com/repository/40760-snapshot-RTWya3/</url>
+        </snapshotRepository>
+        <repository>
+            <id>rdc-releases</id>
+            <url>https://repo.rdc.aliyun.com/repository/40760-release-vOpnwm/</url>
+        </repository>
+    </distributionManagement>
 </project>
